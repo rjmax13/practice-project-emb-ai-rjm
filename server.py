@@ -18,7 +18,7 @@ def sent_analyzer():
         score for the provided text.
     '''
     # Retrieve the text to analyze from the request arguments
-    text_to_analyze = request.args.get('textToAnaylze')
+    text_to_analyze = request.args.get('textToAnalyze')
     print("TEXT:", text_to_analyze)
 
     # Pass the text to the sentiment_analyzer function and store the response
@@ -29,7 +29,9 @@ def sent_analyzer():
     score = response['score']
 
     # Return a formatted string with the sentiment label and score
-    return "The text given has been identified as {label} with a score of {score}.".format(label.split('_')[1],score)
+    return "The text given has been identified as {} with a score of {}.".format(
+    label.split('_')[1], score
+)
     
 @app.route("/")
 def render_index_page():
@@ -40,7 +42,7 @@ def render_index_page():
     
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000) 
+    app.run(host="0.0.0.0", port= 3500) 
     ''' This functions executes the flask app and deploys it on localhost:5000
     '''
 
